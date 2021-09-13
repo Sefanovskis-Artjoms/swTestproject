@@ -1,0 +1,9 @@
+<br>
+<p class="inline"><b>Please provide heigh (cm)</b></p>
+<input class"inline" id="height" name="height">
+<br>
+<p class="inline"><b>Please provide width (cm)</b></p>
+<input class="inline" id="width"  name="width">
+<br> 
+<p class="inline"><b>Please provide lenght (cm)</b></p>
+<input class"inline" id="length" name="lenght">

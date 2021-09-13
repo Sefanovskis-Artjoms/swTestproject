@@ -1,0 +1,3 @@
+<br>
+<p class="inline"><b>Please provide weight (KG)</b></p>
+<input class="inline" id="weight" name="weight">
