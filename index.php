@@ -1,6 +1,6 @@
 <?php
-    include_once 'class/productView.class.php'; 
-    include_once 'class/productControler.class.php'; 
+    include_once 'class/ProductView.class.php'; 
+    include_once 'class/ProductControl.class.php'; 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,12 +34,12 @@
 </body>
 </html>
 <?php
-    //checking if delete button is pressed and if some checkboxes are selected then deletes them
+    //checking if delete button is pressed and if any checkboxes are selected then deletes them
     if (isset($_POST['delete-product-btn'])) {
         $delete = $_POST['num'] ?? "";
         if ('' !== $delete) {
             foreach ($delete as $key => $value) {
-                $del = new Productcontroler();
+                $del = new ProductControl();
                 $del->deleteProducts($value);
             }
         }   

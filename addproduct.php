@@ -1,18 +1,14 @@
 <?php
-    include_once 'class/productControler.class.php';
-    include_once 'class/validator.class.php';
+    include_once 'class/ProductControl.class.php';
+    include_once 'class/Validator.class.php';
 
-    //checking if save button is pressed 
     if (isset($_POST['Save'])) {
-        //if button is pressed then if launch function to validate passed data
-        $validation = new Validator($_POST);
-        //and in err variable i load any errors witch validation function returned if it did
-        $errors = $validation->validateForm($_POST['productType']);
+        $errors = [];
+        $validate = new Validator($_POST);
+        $errors = $validate->validateForm();
         if (empty($errors)) {
-            //after error varieable is checked for being empty i run function to insert data in db
-            $datainsert = new productControler();
+            $datainsert = new productControl();
             $datainsert->addproduct($_POST);
-            //as were the requirements this function returns user to main page after succesfull adding of product 
             header('Location: index.php?adding product=success');
         }
     }
@@ -66,8 +62,8 @@
         <p class="inline"><b>Type Switcher</b></p>
         <select name="productType" id="productType" class="inline" >
             <option value="select">Select type</option>
-            <option value="book">Book</option>
-            <option value="furniture">Furniture</option>
+            <option value="Book">Book</option>
+            <option value="Furniture">Furniture</option>
             <option value="DVD">Disc</option>
         </select>
         <div id="inputfield"></div>
