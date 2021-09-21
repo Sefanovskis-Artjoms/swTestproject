@@ -10,6 +10,7 @@ class Validator{
   private $data;
 
   //array to store errors about user input in addproduct page if there will be any errors
+  //later if this array will be empty the data will be filled in db
   private $errors = [];
 
   //in this constructor all passed data from addproduct page is put in $data varieable
@@ -24,14 +25,19 @@ class Validator{
     $this->validateField('sku');
     $this->validateField('name');
     $this->validateNumberField('price');
+    //check if user has selected some type
     if ($this->data['productType'] == 'select') {
       $this->adderror('typefield','Need to select some type!');
       return $this->errors;
     }
     else {
-      $dynamic = new $this->data['productType']();
-      //passing in validation field all data and then clases will seperately filter out what they need and validate it
+
+      //values from select fields in addproduct are exact same as class names and they are used to call those clases
+      $className = $this->data['productType'];
+      $dynamic = new $className();
+      //passing in validation field all data and then clases will seperately filter data 
       $error = $dynamic->validateData($this->data);
+      //if in dynamic fields were errors then it is added to main error array
       if (!empty($error)) {
         $this->errors['typefield'] = $error;
       }
@@ -39,6 +45,7 @@ class Validator{
     }
   }
 
+  //function validates text fields
   private function validateField($fieldname){
 
     $val = trim($this->data[$fieldname]);
@@ -55,6 +62,7 @@ class Validator{
     }
   }
 
+  //function validates fields where only numbers are alowed
   private function validateNumberField($fieldname)
     {
         $val = trim($this->data[$fieldname]);

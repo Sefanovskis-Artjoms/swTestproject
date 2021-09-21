@@ -34,9 +34,4 @@ class DVD extends ProductList{
       }
     }
   }
-
-  public function insertData()
-  {
-    
-  }
 }

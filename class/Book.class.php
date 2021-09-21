@@ -3,6 +3,7 @@ include_once './abstract/ProductList.abstract.php';
 
 class Book extends ProductList{
 
+  //same function is in DVD and furniture class too but with different type attribute output parts
   public function viewData($ID,$sku,$name,$price,$size,$weight,$width,$height,$lenght)
   {
     echo  '<div class="col productbox">
@@ -19,6 +20,8 @@ class Book extends ProductList{
     echo '</div></div>';
   }
 
+  //this function validates only part of form whitch can be different on users choice 
+  //first part of form is validated in validator class
   public function validateData($data)
   {
  
@@ -33,10 +36,4 @@ class Book extends ProductList{
       }
     }
   }
-
-  public function insertData()
-  {
-    
-  }
-
 }

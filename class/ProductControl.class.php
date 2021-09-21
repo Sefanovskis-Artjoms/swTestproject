@@ -1,6 +1,6 @@
 <?php
 
-include_once './abstract/Product.class.php';
+include_once './abstract/Product.abstract.php';
 
 class ProductControl extends Product{
   
@@ -9,11 +9,11 @@ class ProductControl extends Product{
   }
 
   /*
-    I get all data about field passed in $post_data varieable 
-    and put in temporary varieables to insert them later in function whitch will insert data in db
-    In all fields whitch could potentialy be empty, and after validation i am sure that 
-    nesesary fields are filled, I use null coalescing operator and insert NULL in empty values.
-    after that i pass prepared data to function whitch inserts it in db
+    Data from form fields is passed in $post_data varieable 
+    and put in temporary varieables to insert them later in function whitch will insert it in db
+    In all fields whitch could potentialy be empty (after validation i am sure that 
+    nesesary fields are filled) I use null coalescing operator and insert NULL in empty values.
+    after little preparations data is inserted in function whitch inserts it in db
   */
   public function addproduct($post_data){
     $sku = $post_data['sku'];

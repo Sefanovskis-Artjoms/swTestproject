@@ -33,9 +33,4 @@ class Furniture extends ProductList{
       }
     }
   }
-
-  public function insertData()
-  {
-    
-  }
 }
