@@ -1,4 +1,4 @@
-# ScandiWeb Testproject
+# ScandiWeb Test project
 
 ## Test assignment from scandiweb for junior php developer
 
